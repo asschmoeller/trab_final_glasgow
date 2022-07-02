@@ -1,0 +1,46 @@
+body{
+	background-color: #EAE9FE;
+}
+h2{
+    text-align: center;
+}
+img{
+    width: 30%;
+}
+table{
+	background-color: white;
+}
+th{
+	text-align: center;
+}
+td{
+	vertical-align: middle;
+	text-align: center;
+	width: 28%;
+	border: solid 1px;
+}
+.respostas{
+	text-align: center;
+}
+input{
+	text-align: center;
+}
+img.col-md-6{
+	width: 50%;
+	border: solid 1px;
+}
+p{
+	text-align: justify;
+	margin-left: 5px;
+}
+td.tom{
+	background-color: #F9F9F9;
+}
+tr.titulo{
+	border: solid 1px;
+}
+.alert{
+	visibility: hidden;
+  	position: absolute;
+  	font-size: 12px;
+}
