@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escala Neurológica</title>
+    <!-- Links do Bootstrop -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/javascript.js" type="text/javascript"></script>
+  </head>
+  <body>	
+    <h1>Escala de Glasgow</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- NAV -->
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Menu</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home - Aplicação Escala</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages\sobre.html">Sobre a Escala</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </symbol>
+      <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+      </symbol>
+      <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </symbol>
+      </svg>
+
+      <h2>
+          Aplicação:
+      </h2>
+      <!-- Criação da Tabela -->
+      <table class="table">
+  		<thead>
+      <!-- Criação dos Títulos das tabelas -->
+    	  <tr class="titulo">
+      	    <th scope="col">Condição</th>
+      		  <th scope="col">Situação</th>
+      		  <th scope="col">Selecione a Pontuação</th>
+      		  <th class="hide" scope="col">Pontuação Selecionada</th>
+      	</tr>
+  		</thead>
+  		<tbody class="table-group-divider">
+      <!-- Início dos itens da tabela -->
+    	  <tr rowspan="3">
+      		  <td scope="row" rowspan="4">Abertura Ocular
+      			     <img src="img/ocular.png">
+      		  </td>
+      <!-- Criação dos itens avaliados (Situação do Paciente) -->
+      <!-- Função onmouseover para quando passar em cima da linha, aparecer a mensagem abaixo -->
+      		  <td onmouseover="showAlerta1()" onmouseout="hideAlerta1()">Espontânea
+              <div name="alerta" id="alerta1" class="alert alert-primary d-flex align-items-center" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                <div>
+                Paciente abre os olhos sem a necessidade de estímulo externo.
+                </div>
+              </div>
+            </td>
+      		  <td>
+      <!-- Botão para selecionar o valor do Item Espontâneo. Função pontua para quando clicar em cima ir valor para o campo que calcula -->
+			       <input class="form-check-input" type="radio" name="ocular" onchange="pontua();" value="4" id="pt4">
+			       <label class="form-check-label" for="ocular" name="pontuação_ocular">
+				        4
+			       </label>
+			      </td>
+      		  <td rowspan="4">
+      <!-- Input onde resultado da Abertura Ocular é gerado-->
+      		  <input type="text" class="form-control" placeholder="Pontuação" aria-label="Username" aria-describedby="addon-wrapping" value="0" id="res1">
+      		  </td>
+    	  </tr>
+    	  <tr>
+    		    <td class="tom" onmouseover="showAlerta2()" onmouseout="hideAlerta2()">À voz
+              <div name="alerta" id="alerta2" class="alert alert-primary d-flex align-items-center" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                <div>
+                Paciente abre os olhos quando é chamado.
+                </div>
+              </div>
+            </td>
+    		    <td class="tom">
+      <!-- Botão para selecionar o valor do Item À Voz. -->
+				     <input class="form-check-input" type="radio" name="ocular" onchange="pontua();" value="3" id="pt3">
+				     <label class="form-check-label" for="ocular" value="3">
+				        3
+				     </label>
+			      </td>
+    	  </tr>
+    	  <tr>
+    		    <td onmouseover="showAlerta3()" onmouseout="hideAlerta3()">À pressão
+              <div name="alerta" id="alerta3" class="alert alert-primary d-flex align-items-center" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                <div>
+                Paciente abre os olhos após pressão na extremidade dos dedos (aumentando a intensidade por 10 segundos).
+                </div>
+              </div>
+            </td>
+    		    <td>
+      <!-- Botão para selecionar o valor do Item À dor. -->
+				     <input class="form-check-input" type="radio" name="ocular" onchange="pontua();" value="2" id="pt2">
+				     <label class="form-check-label" for="ocular" value="2" id="definir" name="pontuação_ocular">
+				        2
+				     </label>
+			      </td>
+    	  </tr>
+    	  <tr>
+    		    <td class="tom" onmouseover="showAlerta4()" onmouseout="hideAlerta4()">Nenhuma
+              <div name="alerta" id="alerta4" class="alert alert-primary d-flex align-items-center" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                <div>
+                Paciente não abre os olhos, apesar de ser fisicamente capaz de abri-los.
+                </div>
+              </div>
+            </td>
+    		    <td class="tom">
+      <!-- Botão para selecionar o valor do Item Nenhuma.-->
+				     <input class="form-check-input" type="radio" name="ocular" onchange="pontua();" value="1" id="pt1">
+				     <label class="form-check-label" for="ocular" value="1" id="definir" name="pontuação_ocular">
+				        1
+				     </label>
+            </td>
+			  </tr>
+      <!-- Início Resposta Verbal -->
+    	  <tr>
+      		  <td scope="row" rowspan="5">Resposta Verbal
+      		       <img src="img/verbal.png">
+      		  </td>
+      		  <td onmouseover="showAlerta5()" onmouseout="hideAlerta5()">Orientada
+              <div name="alerta" id="alerta5" class="alert alert-danger d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Paciente consegue responder adequadamente o nome, local e data.
+                </div>
+              </div>
+            </td>
+      		  <td>
+      <!-- Botão para selecionar o valor do Item Orientada. Função pontua2 para quando clicar em cima ir valor para o campo que calcula, igual pontua anterior -->
+             <input class="form-check-input" type="radio" name="verbal" onchange="pontua2();" value="5" id="pt5">
+             <label class="form-check-label" for="verbal" name="pontuação_ocular">
+                5
+             </label>
+            </td>
+      <!-- Input onde resultado da Resposta Verbal é gerado-->
+      		  <td rowspan="5"><input type="text" class="form-control" placeholder="Pontuação" aria-label="Username" aria-describedby="addon-wrapping" id="res2" value="0"></td>
+    	  </tr>
+    	  <tr>
+    		    <td class="tom" onmouseover="showAlerta6()" onmouseout="hideAlerta6()">Confusa
+              <div name="alerta" id="alerta6" class="alert alert-danger d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Paciente consegue conversar em frases, mas não responde corretamente as perguntas de nome, local e data.
+                </div>
+              </div>
+            </td>
+    		    <td class="tom">
+      <!-- Botão para selecionar o valor do Item Confusa. -->
+             <input class="form-check-input" type="radio" name="verbal" onchange="pontua2();" value="4" id="pt4">
+             <label class="form-check-label" for="verbal" name="pontuação_ocular">
+                4
+             </label>
+            </td>
+    	  </tr>
+    	  <tr>
+    		    <td onmouseover="showAlerta7()" onmouseout="hideAlerta7()">Palavras Inapropriadas
+              <div name="alerta" id="alerta7" class="alert alert-danger d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Paciente não consegue falar em frases, interage através de sons ou por vezes, com blasfêmias.
+                </div>
+              </div>
+            </td>
+    		    <td>
+      <!-- Botão para selecionar o valor do Item Palavras Inapropriadas.  -->
+             <input class="form-check-input" type="radio" name="verbal" onchange="pontua2();" value="3" id="pt3">
+             <label class="form-check-label" for="verbal" name="pontuação_ocular">
+                3
+             </label>
+            </td>
+    	  </tr>
+    	  <tr>
+    		    <td class="tom" onmouseover="showAlerta8()" onmouseout="hideAlerta8()">Sons Incompreensivas
+             <div name="alerta" id="alerta8" class="alert alert-danger d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Paciente somente produz gemidos.
+                </div>
+              </div>
+            </td>
+    		    <td class="tom">
+      <!-- Botão para selecionar o valor do Item Palavras Incompreensivas. -->
+             <input class="form-check-input" type="radio" name="verbal" onchange="pontua2();" value="2" id="pt2">
+             <label class="form-check-label" for="verbal" name="pontuação_ocular">
+                2
+             </label>
+            </td>
+    	  </tr>
+    	  <tr>
+    		    <td onmouseover="showAlerta9()" onmouseout="hideAlerta9()">Nenhuma
+             <div name="alerta" id="alerta9" class="alert alert-danger d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Paciente não produz sons, apesar de ser fisicamente capaz de realizá-los.
+                </div>
+              </div>
+            </td>
+    		    <td>
+      <!-- Botão para selecionar o valor do Item Nenhuma. -->
+             <input class="form-check-input" type="radio" name="verbal" onchange="pontua2();" value="1" id="pt1">
+             <label class="form-check-label" for="verbal" name="pontuação_ocular">
+                1
+             </label>   
+            </td>
+    	  </tr>
+      <!-- Início Resposta Motora -->
+    	  <tr>
+      	    <td scope="row" rowspan="6">Resposta Motora
+      	         <img src="img/motora.png">
+      	    </td>
+      	    <td class="tom" onmouseover="showAlerta10()" onmouseout="hideAlerta10()">Obedece comandos
+              <div name="alerta" id="alerta10" class="alert alert-warning d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Paciente cumpre ordens de atividade motora (duas ações) como apertar a mão ou colocar a língua para fora.
+                </div>
+              </div>
+            </td>
+      	    <td class="tom">
+      <!-- Botão para selecionar o valor do Item Obedece comandos. Função pontua3 para quando clicar em cima ir valor para o campo que calcula, igual anteriores -->
+             <input class="form-check-input" type="radio" name="motora" onchange="pontua3();" value="6" id="pt6">
+             <label class="form-check-label" for="motora" name="pontuação_ocular">
+                6
+             </label>  
+            </td>
+      <!-- Input onde resultado da Resposta Motora é gerado-->
+      		  <td rowspan="6"><input type="text" class="form-control" placeholder="Pontuação" aria-label="Username" aria-describedby="addon-wrapping" id="res3" value="0"></td>
+    	  </tr>
+		    <tr>
+    		    <td onmouseover="showAlerta11()" onmouseout="hideAlerta11()">Localiza dor
+              <div name="alerta" id="alerta11" class="alert alert-warning d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Elevação da mão acima do nível da clavícula ao estímulo na cabeça ou pescoço
+                </div>
+              </div>
+            </td>
+    		    <td>
+      <!-- Botão para selecionar o valor do Item Localiza dor. -->
+             <input class="form-check-input" type="radio" name="motora" onchange="pontua3();" value="5" id="pt5">
+             <label class="form-check-label" for="motora" name="pontuação_ocular">
+                5
+             </label>    
+            </td>
+    	  </tr>
+    	  <tr>
+    		    <td class="tom" onmouseover="showAlerta12()" onmouseout="hideAlerta12()">Flexão Normal
+              <div name="alerta" id="alerta12" class="alert alert-warning d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                A mão do paciente não alcança a fonte do estímulo, mas há uma flexão rápida do braço ao nível do cotovelo e na direção externa ao corpo.
+                </div>
+              </div>
+            </td>
+    		    <td class="tom">
+      <!-- Botão para selecionar o valor do Item Movimento de retirada. -->
+             <input class="form-check-input" type="radio" name="motora" onchange="pontua3();" value="4" id="pt4">
+             <label class="form-check-label" for="motora" name="pontuação_ocular">
+                4
+             </label>  
+            </td>
+    	  </tr>
+    	  <tr>
+    		    <td onmouseover="showAlerta13()" onmouseout="hideAlerta13()">Flexão Anormal
+              <div name="alerta" id="alerta13" class="alert alert-warning d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                A mão do paciente não alcança a fonte do estímulo, mas há uma flexão lenta do braço na direção interna do corpo.
+                </div>
+              </div>
+            </td>
+    		    <td>
+      <!-- Botão para selecionar o valor do Item Flexão Anormal. -->
+             <input class="form-check-input" type="radio" name="motora" onchange="pontua3();" value="3" id="pt3">
+             <label class="form-check-label" for="motora" name="pontuação_ocular">
+                3
+             </label>  
+            </td>
+    	  </tr>
+    	  <tr>
+    		    <td class="tom" onmouseover="showAlerta14()" onmouseout="hideAlerta14()">Extensão Anormal
+              <div name="alerta" id="alerta14" class="alert alert-warning d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Há uma extensão do braço ao nível do cotovelo.
+                </div>
+              </div>
+            </td>
+    		    <td class="tom">
+      <!-- Botão para selecionar o valor do Item Extensão Anormal. -->
+             <input class="form-check-input" type="radio" name="motora" onchange="pontua3();" value="2" id="pt2">
+             <label class="form-check-label" for="motora" name="pontuação_ocular">
+                2
+             </label>    
+            </td>
+    	  </tr>
+    	  <tr>
+    		    <td onmouseover="showAlerta15()" onmouseout="hideAlerta15()">Nenhuma
+              <div name="alerta" id="alerta15" class="alert alert-warning d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                Não há resposta motora dos membros superiores e inferiores, apesar de o paciente ser fisicamente capaz de realizá-la.
+                </div>
+              </div>
+            </td>
+    		    <td>
+      <!-- Botão para selecionar o valor do Item Nenhuma. -->
+             <input class="form-check-input" type="radio" name="motora" onchange="pontua3();" value="1" id="pt1">
+             <label class="form-check-label" for="motora" name="pontuação_ocular">
+                1
+             </label>    
+            </td>
+    	  </tr>
+  		</tbody>
+	    </table>
+      <!-- Fim tabela. -->
+	       <div class="respostas">
+      <!-- Botão para executar o cálculo. -->
+		        <button type="button" class="btn btn-primary" onclick="calculo()">Calcular</button>
+	       </div>
+	       <br>
+	       <div class="respostas">
+      <!-- Campo onde aparece resultado. -->
+		        <b>Resultado: <br></b>
+		        <input type="text" id="resp_pontuacao" value="">
+	       </div>
+	       <br>
+      	 <div class="respostas">
+      <!-- Campo para aparecer conduta -->
+		        <b>Conduta: <br></b>
+		        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"  id="conduta" value="">
+	       </div>
+		     <div class="respostas">
+	 	     <p>Escala de coma de Glasgow (ECG) (1974, Universidade de Glasgow na Escócia) </p> 
+	       </div>
+  </body>
+</html>
